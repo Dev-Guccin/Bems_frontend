@@ -46,6 +46,8 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
+
   export default {
     data: () => ({
       valid: true,
@@ -53,11 +55,23 @@
       password: '',
     }),
 
-    methods: {
-      validate () {
-        this.$refs.form.validate()
-      },
-    },
+     methods: {
+      ...mapActions(['login']),
+      async onSubmit () {
+        try {
+          let loginResult = await this.login({uid: this.uid, password: this.password})
+          if (loginResult == true) {
+            // window.location.href = '/home';
+            this.$router.push({name: 'home'});
+          }else{
+            alert('아이디 혹은 비밀번호가 잘못되었습니다.')
+          }
+          console.log(loginResult) // 로그인 성공하면 true, 아니면 false
+        } catch (err) {
+          console.error(err)
+        }
+      }
+    }
   }
 </script>
 <style scoped>

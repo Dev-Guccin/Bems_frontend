@@ -11,7 +11,7 @@
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>4Msys Monitoring System</v-toolbar-title>
       <v-layout align-end justify-end>
-        <v-btn elevation="3" router :to="{name: 'login'}" exact>Admin page</v-btn>
+        <LoginBtn></LoginBtn>
       </v-layout>
     </v-app-bar>
 
@@ -23,11 +23,13 @@
 
 <script>
 import AppSidebar from './components/AppSidebar.vue'
+import LoginBtn from './components/LoginBtn.vue'
 
   export default {
     data: () => ({ drawer: null }),
     components: {
-      AppSidebar
+      AppSidebar,
+      LoginBtn
     }
   }
 </script>
