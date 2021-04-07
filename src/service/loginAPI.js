@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 const getUserInfo = (uid, password) => {
+  console.log("go")
   return axios.post('/endpoint-for-get-user-info', {
     params: {
       'uid': uid,
@@ -20,6 +21,7 @@ const isFinished = uid => {
 export default {
   async login (uid, password) {
     try {
+      console.log("login api")
       const getUserInfoPromise = await getUserInfo(uid, password)//백에 id, password를 보내는듯??
       const isFinishedPromise = await isFinished(uid) // Promise.all의 예시를 위해 집어넣음
       const [userInfoResponse, isFinishedResponse] = await Promise.all([getUserInfoPromise, isFinishedPromise])

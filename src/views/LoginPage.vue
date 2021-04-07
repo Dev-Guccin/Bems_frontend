@@ -19,7 +19,7 @@
       <v-text-field
         solo
         dense
-        v-model="id"
+        v-model="uid"
         label="ID"
         required
       ></v-text-field>
@@ -36,7 +36,7 @@
         :disabled="!valid"
         color="primary"
         class="mr-4"
-        @click="validate"
+        @click="onSubmit"
       >
         Login
       </v-btn>
@@ -51,7 +51,7 @@
   export default {
     data: () => ({
       valid: true,
-      id: '',
+      uid: '',
       password: '',
     }),
 
@@ -60,8 +60,8 @@
       async onSubmit () {
         try {
           let loginResult = await this.login({uid: this.uid, password: this.password})
+          console.log(loginResult)
           if (loginResult == true) {
-            // window.location.href = '/home';
             this.$router.push({name: 'home'});
           }else{
             alert('아이디 혹은 비밀번호가 잘못되었습니다.')

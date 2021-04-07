@@ -7,6 +7,7 @@ import store from './vuex/store'
 
 Vue.prototype.$axios = axios
 Vue.prototype.$store = store
+// Vue.prototype.$router = router
 Vue.config.productionTip = false
 
 new Vue({
