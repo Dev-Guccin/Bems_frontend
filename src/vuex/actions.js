@@ -1,5 +1,5 @@
 import {UID, IS_AUTH, ERROR_STATE} from './mutation_types'
-import api from '../service'
+import api from '../service/index'
 
 let setUID = ({commit}, data) => {
   commit(UID, data)

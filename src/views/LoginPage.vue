@@ -62,7 +62,7 @@
           let loginResult = await this.login({uid: this.uid, password: this.password})
           console.log(loginResult)
           if (loginResult == true) {
-            this.$router.push({name: 'home'});
+            this.$router.push({name: 'setting'});
           }else{
             alert('아이디 혹은 비밀번호가 잘못되었습니다.')
           }

@@ -21,6 +21,14 @@
             <v-list-item-title v-text="item.text"></v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+        <v-list-item v-if ="this.$store.getters.getIsAuth == true">
+          <v-list-item-icon>
+            <v-icon v-text="items1[0].icon"></v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title v-text="items1[0].text"></v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
       </v-list-item-group>
     </v-list>
   </v-card>
@@ -40,8 +48,10 @@
         { text: '수도',router:'water', icon: 'mdi-water-pump' },
         { text: 'pm', router:'dust',icon: 'mdi-dots-hexagon' },
         { text: '이산화탄소',router:'co2', icon: 'mdi-molecule-co2' },
-        { text: '환경설정',router:'setting', icon: 'mdi-cog-outline' },
       ],
+      items1: [
+        { text: '환경설정',router:'setting', icon: 'mdi-cog-outline' },
+      ]
     }),
   }
 </script>
